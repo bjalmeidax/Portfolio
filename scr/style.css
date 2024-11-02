@@ -113,6 +113,21 @@ button {
     color: rgb(0, 0, 0);
 }
 
+.PT-EN {
+    font-weight: 500;
+    padding: 5px 15px;
+    background-color: transparent;
+    color: white;
+    border-radius: 10px;
+    border: 2px solid #1e0aff;
+    transition: 0.2s;
+}
+
+.PT-EN:hover {
+    background-color: #0a1eff;
+    color: rgb(255, 255, 255);
+}
+
 .menu.btn {
     font-size: 32px;
     color: white;
@@ -221,7 +236,6 @@ p {
     line-height: 1.8;
     margin-bottom: 0.5rem;
 }
-
 
 
 @media (max-width: 53rem) {
