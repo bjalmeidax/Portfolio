@@ -12,9 +12,6 @@ Bem-vindo ao meu portfólio! Sou um **desenvolvedor em formação**, apaixonado 
 ## 🚀 Sobre o meu Portfólio:  
 O site ainda não foi hospedado, mas aqui está uma prévia de como ele ficou:  
 
-## 🚀 Sobre o meu Portfólio:  
-O site ainda não foi hospedado, mas aqui está uma prévia de como ele ficou:  
-
 https://github.com/user-attachments/assets/bf22cf20-164b-4bb9-a61c-866a7a6dec81
 
 Mostrando a Responsividade:
