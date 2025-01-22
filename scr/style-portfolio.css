@@ -1,0 +1,638 @@
+*,
+*::before
+*::after {
+    box-sizing: border-box;
+}
+  
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #2b2b2b;
+}
+
+::-webkit-scrollbar {
+    width: 10px; 
+    border-radius: 10px; 
+}
+  
+::-webkit-scrollbar-track {
+    background: transparent; 
+    border-radius: 10px; 
+}
+  
+::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 10px; 
+    transition: background 0.3s ease; 
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+  
+
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    position: relative;
+    padding-bottom: 40px;
+}
+
+section:not(:last-child):after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 80%; 
+    height: 2px; 
+    background-color: #0056b3; 
+    opacity: 0.6; 
+    transform: translateX(-50%); 
+    border-radius: 5px; 
+    transition: width 0.3s ease, opacity 0.3s ease; 
+}
+
+section:not(:last-child):hover:after {
+    width: 90%; 
+    opacity: 1; 
+}
+
+.navbar {
+    height: 17px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    z-index: 1000;
+    transition: background-color 0.3s ease; /* Transição suave para mudança de fundo */
+}
+
+
+.navbar.scrolled {
+    background-color: #131416; /* Fundo preto com leve transparência */
+}
+
+.logo {
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-decoration: none;
+}
+
+.nav {
+    display: flex;
+    padding: 16px 32px;
+    width: 100%;
+}
+
+.nav-links {
+    display: flex;
+    padding: 0;
+    gap: 24px;
+    list-style-type: none;
+    width: auto;
+}
+
+.nav-links a {
+    font-weight: 500;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #999999;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.nav-links a:hover {
+    color: white;
+    background-color: transparent;
+    border: 1px solid white; 
+    border-radius: 15px;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.menu-toggle {
+    display: none; 
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    color: white;
+    z-index: 1000;
+    cursor: pointer; 
+    transition: transform 0.3s ease, color 0.3s ease; 
+}
+
+.menu-toggle:hover {
+    color: #0056b3; 
+    transform: scale(1.1); 
+}
+
+
+@media (min-width: 840px) {
+    .nav-links {
+        display: flex; 
+    }
+
+    .menu-toggle {
+        display: none; 
+    }
+
+    .overlay {
+        display: none; 
+    }
+}
+
+@media (max-width: 840px) {
+    .nav-links {
+        display: none; 
+        flex-direction:column; 
+        width: 100%; 
+        background-color: transparent; 
+        position: absolute;
+        top: 40px; 
+        left: 0;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block; 
+        background-color: transparent;
+        border: none;
+        font-size: 28px;
+        color: white; 
+        z-index: 1000;
+    }
+
+    .overlay {
+        display: none; 
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #36363649; 
+        z-index: 998; 
+        backdrop-filter: blur(10px); 
+    }
+
+    .nav-links.active + .overlay {
+        display: block;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+/*Home*/
+
+.home {
+    width: 100%;
+    min-height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #131416;
+    background-image: url('Background-Home.png'); 
+    background-size: cover; 
+    background-position: center center; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat; 
+    overflow: hidden; 
+}
+
+.first-section {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    color: white; 
+    max-width: 800px;
+    padding: 20px;
+}
+
+.home-text h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.home-text h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.home-text p {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.37);
+}
+
+/*About*/
+
+.about {
+    padding: 40px 20px;
+    background-color: #131416;
+    text-align: center;
+}
+
+.second-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilo para a imagem */
+/* .about-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+} */
+
+.about-text {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #333;
+    text-align: center; 
+    margin: 0 auto; 
+    max-width: 800px; 
+}
+
+.about-text h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.about-text p {
+    font-size: 1.4em;
+    line-height: 1.4;
+    color: #666;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.topics {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.topics li {
+    font-size: 1em;
+    color: #ffffff;
+    background-color: #0056b3;
+    padding: 20px;
+    border-radius: 25px;
+    text-align: center;
+    flex: 1;
+    max-width: 300px;
+    min-width: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.topics li h1 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.topics li:hover {
+    background-color: #003d80;
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-links a {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    background-color: #131416;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.social-links a img {
+    width: 70%;
+    height: 70%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: scale(1.1);
+}
+
+.social-links a:hover img {
+    transform: scale(1.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Experiencias Profissionais */
+
+.experiences {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 50px 20px;
+    background-color: #131416;
+    text-align: center;
+}
+
+.experiences-text h2 {
+    font-size: 2.5em;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.cards-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.cards-section .card-1,
+.cards-section .card-2,
+.cards-section .card-3 {
+    position: relative;
+    background-color: #2b2b2b;
+    border-radius: 10px;
+    width: 300px;
+    height: 350px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.cards-section .card-1:hover,
+.cards-section .card-2:hover,
+.cards-section .card-3:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.cards-section .card-1 h3,
+.cards-section .card-2 h3,
+.cards-section .card-3 h3 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.2em;
+    color: #ffffff;
+    margin-top: 15px;
+    margin-bottom: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cards-section .card-1 p,
+.cards-section .card-2 p,
+.cards-section .card-3 p {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0e2e55;
+    color: #ffffff;
+    font-size: 1em;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    line-height: 1.5;
+    padding: 15px;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: all 0.5s ease; 
+    opacity: 0;
+    z-index: 1; 
+}
+
+.cards-section .card-1:hover p,
+.cards-section .card-2:hover p,
+.cards-section .card-3:hover p {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+}
+
+.cards-section .card-1 p .date,
+.cards-section .card-2 p .date,
+.cards-section .card-3 p .date {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffffff; 
+}
+
+
+.card-image {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cards-section .card-1 {
+    border-left: 5px solid #0e2e55;
+    position: relative;
+    overflow: hidden;
+}
+
+.cards-section .card-2 {
+    border-left: 5px solid #008080;
+    position: relative;
+    overflow: hidden;
+}
+
+.cards-section .card-3 {
+    border-left: 5px solid #800080;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Projetos Pessoais */
+
+.projetcs {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    padding: 50px;
+    background-color: #131416;
+}
+
+.projetcs-text p {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.projetcs-text h2 {
+    font-size: 2.5em;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.loading-container {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 10px; 
+    margin-top: 20px;
+}
+
+.loading {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #0056b3;
+    animation: pulse 1.2s infinite ease-in-out;
+}
+
+.loading:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.loading:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.loading:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(0.6);
+        opacity: 0.4;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.loading-text {
+    font-size: 1.5em;
+    color: #ffffff;
+    margin-left: 20px;
+}
+
+.dots {
+    animation: blink 1s infinite steps(5, start);
+}
+
+@keyframes blink {
+    0% {
+        content: "....";
+    }
+    25% {
+        content: "...";
+    }
+    50% {
+        content: "..";
+    }
+    75% {
+        content: ".";
+    }
+    100% {
+        content: "....";
+    }
+}
+
+/* Minhas Habilidades */
+
+.skills {
+    padding: 50px;
+    background-color: #131416;
+}
+
+.five-section {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skills-text h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    width: 250px;
+    padding: 20px;
+    background: #fff;
+    border: 3px solid #0056b3;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.144);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    color: #333;
+}
